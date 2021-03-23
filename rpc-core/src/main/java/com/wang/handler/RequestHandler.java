@@ -3,15 +3,15 @@ package com.wang.handler;
 import com.wang.enumeration.ResponseCode;
 import com.wang.pojo.RpcRequest;
 import com.wang.pojo.RpcResponse;
-import com.wang.transport.socket.server.RpcServerImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+// 进行过程调用的处理器
 public class RequestHandler {
-    private static final Logger logger =  LoggerFactory.getLogger(RpcServerImpl.class);
+    private static final Logger logger =  LoggerFactory.getLogger(RequestHandler.class);
 
     public Object handle(RpcRequest rpcRequest, Object service){
         Object res = null;

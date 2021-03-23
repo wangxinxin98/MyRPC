@@ -1,10 +1,6 @@
 package com.wang.serializer;
 
-/**
- * 通用的序列化反序列化接口
- *
- * @author ziyang
- */
+// 通用的序列化反序列化接口
 public interface CommonSerializer {
 
     static CommonSerializer getSerializer() {
