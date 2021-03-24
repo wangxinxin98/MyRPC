@@ -3,7 +3,7 @@ package com.wang.transport.socket.server;
 import com.wang.handler.RequestHandler;
 import com.wang.pojo.RpcRequest;
 import com.wang.pojo.RpcResponse;
-import com.wang.registry.ServiceRegistry;
+import com.wang.registry.general.CommonServiceRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,9 +16,9 @@ public class RequestHandlerThread implements Runnable{
     private static final Logger logger =  LoggerFactory.getLogger(RpcServerImpl.class);
     private Socket socket;
     private RequestHandler requestHandler;
-    private ServiceRegistry serviceRegistry;
+    private CommonServiceRegistry serviceRegistry;
 
-    public RequestHandlerThread(Socket socket, RequestHandler requestHandler, ServiceRegistry serviceRegistry) {
+    public RequestHandlerThread(Socket socket, RequestHandler requestHandler, CommonServiceRegistry serviceRegistry) {
         this.socket = socket;
         this.requestHandler = requestHandler;
         this.serviceRegistry = serviceRegistry;

@@ -1,10 +1,10 @@
 package com.wang.client;
 
 import com.wang.pojo.HelloObject;
+import com.wang.serializer.KryoSerializer;
 import com.wang.service.HelloService;
-import com.wang.transport.RpcClient;
-import com.wang.transport.RpcClientProxy;
-import com.wang.transport.RpcClientProxyByClient;
+import com.wang.transport.*;
+import com.wang.transport.nacos.client.NacosClient;
 import com.wang.transport.netty.client.NettyClient;
 import org.junit.Test;
 
@@ -35,6 +35,18 @@ public class TestClient {
         RpcClientProxyByClient proxyByClient = new RpcClientProxyByClient(client);
         HelloService helloService = proxyByClient.getProxy(HelloService.class);
         HelloObject object = new HelloObject(12, "It's a msg!");
+        String res = helloService.hello(object);
+        System.out.println(res);
+    }
+
+    // Nacos测试
+    @Test
+    public void testNacosClient(){
+        NacosRpcClient client = new NacosClient();
+        client.setSerializer(new KryoSerializer());
+        NacosRpcClientProxyByClient rpcClientProxy = new NacosRpcClientProxyByClient(client);
+        HelloService helloService = rpcClientProxy.getProxy(HelloService.class);
+        HelloObject object = new HelloObject(12, "This is a message");
         String res = helloService.hello(object);
         System.out.println(res);
     }

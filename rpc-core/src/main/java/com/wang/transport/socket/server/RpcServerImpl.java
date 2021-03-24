@@ -1,7 +1,7 @@
 package com.wang.transport.socket.server;
 
 import com.wang.handler.RequestHandler;
-import com.wang.registry.DefaultServiceRegistry;
+import com.wang.registry.general.CommonServiceRegistryImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,9 +18,9 @@ public class RpcServerImpl {
     private static final int BLOCKING_QUEUE_CAPACITY = 100;
     private final ExecutorService threadPool;
     private RequestHandler requestHandler = new RequestHandler();
-    private final DefaultServiceRegistry serviceRegistry;
+    private final CommonServiceRegistryImpl serviceRegistry;
 
-    public RpcServerImpl(DefaultServiceRegistry serviceRegistry) {
+    public RpcServerImpl(CommonServiceRegistryImpl serviceRegistry) {
         this.serviceRegistry = serviceRegistry;
         ArrayBlockingQueue<Runnable> workingQueue = new ArrayBlockingQueue<>(BLOCKING_QUEUE_CAPACITY);
         ThreadFactory threadFactory = Executors.defaultThreadFactory();

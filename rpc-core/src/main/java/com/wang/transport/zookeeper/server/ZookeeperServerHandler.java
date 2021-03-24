@@ -1,4 +1,4 @@
-package com.wang.transport.netty.server;
+package com.wang.transport.zookeeper.server;
 
 import com.wang.handler.RequestHandler;
 import com.wang.pojo.RpcRequest;
@@ -15,8 +15,8 @@ import org.slf4j.LoggerFactory;
 
 // Netty服务端侧处理器
 // 接收RpcRequest，并且执行调用，将调用结果返回封装成RpcResponse发送出去
-public class NettyServerHandler extends SimpleChannelInboundHandler<RpcRequest> {
-    private static final Logger logger = LoggerFactory.getLogger(NettyServerHandler.class);
+public class ZookeeperServerHandler extends SimpleChannelInboundHandler<RpcRequest> {
+    private static final Logger logger = LoggerFactory.getLogger(ZookeeperServerHandler.class);
     private static RequestHandler requestHandler;
     private static CommonServiceRegistry serviceRegistry;
 
